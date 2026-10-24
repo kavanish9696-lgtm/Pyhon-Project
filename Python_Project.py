@@ -55,9 +55,7 @@ else :
     print("Card Blocked")
 
 
-#                                              PROJECT -2
-
-
+#                                              PROJECT  -2 
 students = {"Aman": [85, 90, 78], "Riya": [92, 88, 95], "Zoya": [70, 65, 80]}
 
 while True:
@@ -109,11 +107,10 @@ while True:
 
     elif choice == "3":
         topper_name = ""
-        highest_avg = -1
-        
+        highest_avg = 0
         for name, marks in students.items():
             avg = sum(marks) / len(marks)
-            if avg > highest_avg:
+            if avg >= highest_avg:
                 highest_avg = avg
                 topper_name = name
                 
