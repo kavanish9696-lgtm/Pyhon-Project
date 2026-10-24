@@ -56,7 +56,12 @@ else :
 
 
 #                                              PROJECT -2
+<<<<<<< HEAD:Python_Project.py
         
+=======
+
+
+>>>>>>> e09fe62 (Resolved Project 2):class_2110.py
 students = {"Aman": [85, 90, 78], "Riya": [92, 88, 95], "Zoya": [70, 65, 80]}
 
 while True:
@@ -76,10 +81,15 @@ while True:
         else:
             marks = []
             valid = True
+<<<<<<< HEAD:Python_Project.py
             
             for i in range(1, 4):
                 mark_str = input(f"Enter mark {i}: ").strip()
                 
+=======
+            for i in range(1, 4):
+                mark_str = input(f"Enter mark {i}: ").strip()
+>>>>>>> e09fe62 (Resolved Project 2):class_2110.py
                 if mark_str.replace('.', '', 1).isdigit():
                     mark = float(mark_str)
                     if 0 <= mark <= 100:
@@ -99,7 +109,10 @@ while True:
     elif choice == "2":
         for name, marks in students.items():
             avg = sum(marks) / len(marks)
+<<<<<<< HEAD:Python_Project.py
             
+=======
+>>>>>>> e09fe62 (Resolved Project 2):class_2110.py
             if avg >= 85:
                 grade = "A"
             elif avg >= 70:
@@ -108,7 +121,10 @@ while True:
                 grade = "C"
             else:
                 grade = "F"
+<<<<<<< HEAD:Python_Project.py
                 
+=======
+>>>>>>> e09fe62 (Resolved Project 2):class_2110.py
             print(f"{name} {avg:.2f} {grade}")
 
     elif choice == "3":
@@ -127,7 +143,12 @@ while True:
     elif choice == "4":
         print("Goodbye!")
         break
+
     else:
         print("Invalid choice, please select between 1 and 4.")
+<<<<<<< HEAD:Python_Project.py
                     
            
+=======
+        
+>>>>>>> e09fe62 (Resolved Project 2):class_2110.py
