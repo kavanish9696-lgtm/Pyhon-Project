@@ -56,6 +56,7 @@ else :
 
 
 #                                              PROJECT  -2 
+
 students = {"Aman": [85, 90, 78], "Riya": [92, 88, 95], "Zoya": [70, 65, 80]}
 
 while True:
