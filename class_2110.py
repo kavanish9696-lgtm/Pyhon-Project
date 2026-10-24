@@ -70,7 +70,7 @@ while True:
     choice = input("Enter choice (1-4): ").strip()
     
     if choice == "1":
-        name = input("Enter student name: ").strip()
+        name = str(input("Enter student name: ")).strip()
         if name in students:
             print("Student already exists.")
         else:
