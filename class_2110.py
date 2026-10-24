@@ -56,69 +56,74 @@ else :
 
 
 #                                              PROJECT -2
-        
-students = {"Aman": [85, 90, 78], "Riya": [92, 88, 95], "Zoya": [70, 65, 80]}
-def get_grade(avg):
-    if avg >= 85:
-        return "A"
-    elif avg >= 70:
-        return "B"
-    elif avg >= 50:
-        return "C"
-    else:
-        return "F"
 
-def calculate_average(marks):
-    return sum(marks) / len(marks)
+
+students = {"Aman": [85, 90, 78], "Riya": [92, 88, 95], "Zoya": [70, 65, 80]}
 
 while True:
-    print("\n1. Add student\n2. View all\n3. Show topper\n4. Exit")
-    choice = input("Enter option(1-4): ",)
-
+    print("\n--- Student Marks Manager ---")
+    print("1. Add student")
+    print("2. View all")
+    print("3. Show topper")
+    print("4. Exit")
+    
+    choice = input("Enter choice (1-4): ").strip()
+    
     if choice == "1":
         name = input("Enter student name: ").strip()
         if name in students:
             print("Student already exists.")
-            continue
-        
-        marks = []
-        for i in range(1, 4):
-            while True:
-                try:
-                    mark = float(input(f"Enter mark {i}: ",))
+        else:
+            marks = []
+            valid = True
+            for i in range(1, 4):
+                mark_str = input(f"Enter mark {i}: ").strip()
+                if mark_str.replace('.', '', 1).isdigit():
+                    mark = float(mark_str)
                     if 0 <= mark <= 100:
                         marks.append(mark)
-                        break
                     else:
                         print("Invalid mark, try again.")
-                except ValueError:
+                        valid = False
+                        break
+                else:
                     print("Invalid mark, try again.")
-        
-        students[name] = marks
+                    valid = False
+                    break
+            
+            if valid and len(marks) == 3:
+                students[name] = marks
 
     elif choice == "2":
-        
         for name, marks in students.items():
-            avg = round(calculate_average(marks), 2)
-            grade = get_grade(avg)
+            avg = sum(marks) / len(marks)
+            if avg >= 85:
+                grade = "A"
+            elif avg >= 70:
+                grade = "B"
+            elif avg >= 50:
+                grade = "C"
+            else:
+                grade = "F"
             print(f"{name} {avg:.2f} {grade}")
 
     elif choice == "3":
+        topper_name = ""
+        highest_avg = -1
         
-        topper_name = None
-        highest_avg = -1.0
-
         for name, marks in students.items():
-            avg = calculate_average(marks)
+            avg = sum(marks) / len(marks)
             if avg > highest_avg:
                 highest_avg = avg
                 topper_name = name
-
-        if topper_name:
+                
+        if topper_name != "":
             print(f"Topper: {topper_name}")
 
     elif choice == "4":
         print("Goodbye!")
         break
+
     else:
-        print("Invalid option, try again.")
+        print("Invalid choice, please select between 1 and 4.")
+        
